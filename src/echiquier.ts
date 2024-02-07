@@ -71,6 +71,7 @@ export class Echiquier {
     // Si la case de destination est vide, effectuer un déplacement
     const targetPiece = this.getPieceAt(to);
     if (!targetPiece) {
+      // console.log(piece instanceof Pion, to[0], to[1]);
       // Gestion de la promotion du pion si le pion atteint l'autre extrémité de l'échiquier
       if (piece instanceof Pion && (to[0] === 0 || to[0] === 7)) {
         const promotionToPiece = new Reine(piece.color, to[0], to[1]);
