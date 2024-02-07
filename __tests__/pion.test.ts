@@ -16,7 +16,7 @@ describe("Pion", () => {
   });
 
   it("doit pouvoir avancer d'une case", () => {
-    expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy();
+    expect(echiquier.movePiece([6, 4], [5, 4])).toBeTruthy();
     expect(echiquier.movePiece([1, 4], [2, 4])).toBeTruthy();
   });
 
@@ -48,17 +48,16 @@ describe("Pion", () => {
   });
 
   it("doit être promu en reine en atteignant l'autre extrémité de l'échiquier", () => {
-    const ennemiBlanc = new Pion("Noir", 3, 1);
-    echiquier.setPieceAt([3, 1], ennemiBlanc);
-    console.log(echiquier.getPieceAt([3, 0]));
-    echiquier.movePiece([3, 1], [3, 0]);
-    const piecePromueBlanc = echiquier.getPieceAt([3, 0]);
-
+    const ennemiBlanc = new Pion("Blanc", 1, 1);
+    echiquier.setPieceAt([1, 1], ennemiBlanc);
+    echiquier.movePiece([1, 1], [0, 1]);
+    const piecePromueBlanc = echiquier.getPieceAt([0, 1]);
     expect(piecePromueBlanc).toBeInstanceOf(Reine);
 
-    // echiquier.setPieceAt([0, 4], null);
-    // echiquier.movePiece([1, 4], [0, 4]);
-    // const piecePromueNoir = echiquier.getPieceAt([0, 4]);
-    // expect(piecePromueNoir).toBeInstanceOf(Reine);
+    const ennemiNoir = new Pion("Noir", 6, 1);
+    echiquier.setPieceAt([6, 1], ennemiNoir);
+    echiquier.movePiece([6, 1], [7, 1]);
+    const piecePromueNoir = echiquier.getPieceAt([7, 1]);
+    expect(piecePromueNoir).toBeInstanceOf(Reine);
   });
 });
