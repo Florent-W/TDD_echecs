@@ -6,7 +6,7 @@ export class Pion extends Piece {
   canMoveTo(position: [number, number]): boolean {
     let dx = position[0] - this.position[0];
     let dy = position[1] - this.position[1];
-    let direction = this.color === "Blanc" ? 1 : -1;
+    let direction = this.color === "Blanc" ? -1 : 1;
 
     if (this.firstMove) {
       this.firstMove = false;
