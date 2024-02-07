@@ -19,12 +19,12 @@ describe("Pion", () => {
     expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy();
     expect(echiquier.movePiece([1, 4], [2, 4])).toBeTruthy();
   });
-  /*
-it('doit pouvoir avancer de deux cases depuis sa position initiale', () => {
+  
+  it('doit pouvoir avancer de deux cases depuis sa position initiale', () => {
     expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy(); 
     expect(echiquier.movePiece([1, 4], [3, 4])).toBeTruthy(); 
-});
-*/
+  });
+
   it("ne doit pas pouvoir avancer de deux cases si ce n'est pas son premier mouvement", () => {
     echiquier.movePiece([6, 4], [5, 4]);
     expect(echiquier.movePiece([5, 4], [3, 4])).toBeFalsy();
