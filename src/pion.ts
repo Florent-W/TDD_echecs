@@ -12,7 +12,7 @@ export class Pion extends Piece {
       this.firstMove = false;
       return (dx === 2 * direction || dx === direction) && dy === 0;
     } else {
-      return dx === direction && dy === 0;
+      return dx === direction && (dy === 0 || dy === 1 || dy === -1);
     }
   }
 }

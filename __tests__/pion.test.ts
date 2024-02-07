@@ -19,10 +19,10 @@ describe("Pion", () => {
     expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy();
     expect(echiquier.movePiece([1, 4], [2, 4])).toBeTruthy();
   });
-  
-  it('doit pouvoir avancer de deux cases depuis sa position initiale', () => {
-    expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy(); 
-    expect(echiquier.movePiece([1, 4], [3, 4])).toBeTruthy(); 
+
+  it("doit pouvoir avancer de deux cases depuis sa position initiale", () => {
+    expect(echiquier.movePiece([6, 4], [4, 4])).toBeTruthy();
+    expect(echiquier.movePiece([1, 4], [3, 4])).toBeTruthy();
   });
 
   it("ne doit pas pouvoir avancer de deux cases si ce n'est pas son premier mouvement", () => {
@@ -33,16 +33,19 @@ describe("Pion", () => {
     expect(echiquier.movePiece([2, 4], [4, 4])).toBeFalsy();
   });
 
-  /*
-it('doit pouvoir capturer une pièce ennemie en diagonale', () => {
-    const ennemiBlanc = new Pion('Noir', 5, 5);
-    const ennemiNoir = new Pion('Blanc', 2, 3);
-    echiquier.setPieceAt([5, 5], ennemiBlanc);
-    echiquier.setPieceAt([2, 3], ennemiNoir);
-    expect(echiquier.movePiece([6, 4], [5, 5])).toBeTruthy();
-    expect(echiquier.movePiece([1, 4], [2, 3])).toBeTruthy(); 
-});
-*/
+  it("doit pouvoir capturer une pièce ennemie en diagonale", () => {
+    echiquier.movePiece([6, 4], [5, 4]);
+    echiquier.movePiece([1, 4], [2, 4]);
+
+    const ennemiBlanc = new Pion("Noir", 4, 5);
+    const ennemiNoir = new Pion("Blanc", 3, 3);
+
+    echiquier.setPieceAt([4, 5], ennemiBlanc);
+    echiquier.setPieceAt([3, 3], ennemiNoir);
+
+    expect(echiquier.movePiece([5, 4], [4, 5])).toBeTruthy();
+    expect(echiquier.movePiece([2, 4], [3, 3])).toBeTruthy();
+  });
 
   // it("doit être promu en reine en atteignant l'autre extrémité de l'échiquier", () => {
   //   echiquier.setPieceAt([7, 4], null);
